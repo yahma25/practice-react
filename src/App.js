@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
+import './sass/materialize.scss';
 import './App.css';
+import Button from './04/Button';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div>
+        <nav>
+          <div className="nav-wrapper">
+            <div>안녕하쇼</div>
+          </div>
+        </nav>
+        <h1>머티리얼 CSS</h1>
+        <Button small>버튼임</Button>
+      </div>
+    );
+  }
 }
 
 export default App;
