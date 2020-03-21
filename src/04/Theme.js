@@ -24,7 +24,8 @@ export default {
     secondary: '#795548',
     white: '#FFFFFF',
     gray: '#CCCCCC',
-    default: '#999999'
+    default: '#999999',
+    error: '#FF0000', // 오류 색상
   },
   size: {
     xg: 24,
