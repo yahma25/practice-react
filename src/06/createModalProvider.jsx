@@ -14,8 +14,9 @@ export default function createModalProvider(ContentMap = {}) {
       this.handleOpen = this.handleOpen.bind(this);
     }
 
-    handleOpen(contentId) {
+    handleOpen(contentId, modalProps) {
       this.contentId = contentId;
+      this.modalProps = modalProps;
       this.setState({ showModal: true });
     }
 
@@ -38,7 +39,7 @@ export default function createModalProvider(ContentMap = {}) {
           {children}
           {showModal && ModalContent && (
             <Modal>
-              <ModalContent />
+              <ModalContent {...this.modalProps} />
             </Modal>
           )}
         </Provider>

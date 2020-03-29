@@ -37,7 +37,9 @@ storiesOf('Modal', module)
         <Text>다음 버튼을 눌러 모달을 실행합니다.</Text>
         <ModalConsumer>
           {({ openModal }) => (
-            <Button onPress={() => openModal(CONFIRM_DELETE_MODAL)}>모달 열기</Button>
+            <Button onPress={() => openModal(CONFIRM_DELETE_MODAL, { id: 1, name: '상품1' })}>
+              모달 열기
+            </Button>
           )}
         </ModalConsumer>
         <ModalConsumer>
