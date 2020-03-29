@@ -14,7 +14,7 @@ class Text extends PureComponent {
           large && styles.large,
           xlarge && styles.xlarge,
           secondary && styles.secondary,
-          primary && styles.primary,
+          primary && styles.primary
         )}
       >
         {children}
@@ -30,34 +30,34 @@ Text.propTypes = {
   large: PropTypes.bool,
   xlarge: PropTypes.bool,
   secondary: PropTypes.bool,
-  primary: PropTypes.bool,
+  primary: PropTypes.bool
 };
 
 export default withStyles(({ color, size, responsive }) => ({
   default: {
     color: color.default,
     fontSize: size.md,
-    // [responsive.small]: {
-    //   textAlign: 'center',
-    //   width: '100%',
-    // },
+    [responsive.small]: {
+      textAlign: 'center',
+      width: '100%'
+    }
   },
   xlarge: {
-    fontSize: size.xg,
+    fontSize: size.xg
   },
   large: {
-    fontSize: size.lg,
+    fontSize: size.lg
   },
   small: {
-    fontSize: size.sm,
+    fontSize: size.sm
   },
   xsmall: {
-    fontSize: size.xs,
+    fontSize: size.xs
   },
   primary: {
-    color: color.primary,
+    color: color.primary
   },
   secondary: {
-    color: color.secondary,
-  },
+    color: color.secondary
+  }
 }))(Text);

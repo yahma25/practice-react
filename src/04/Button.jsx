@@ -14,7 +14,7 @@ class Button extends PureComponent {
       xsmall,
       primary,
       secondary,
-      onPress,
+      onPress
     } = this.props;
     return (
       <button
@@ -25,7 +25,7 @@ class Button extends PureComponent {
           large && styles.large,
           xlarge && styles.xlarge,
           secondary && styles.secondary,
-          primary && styles.primary,
+          primary && styles.primary
         )}
         disabled={disabled}
         onClick={onPress}
@@ -45,7 +45,7 @@ Button.propTypes = {
   xlarge: PropTypes.bool,
   secondary: PropTypes.bool,
   primary: PropTypes.bool,
-  onPress: PropTypes.func,
+  onPress: PropTypes.func
 };
 Button.defaultProps = {
   onPress: () => {},
@@ -54,7 +54,7 @@ Button.defaultProps = {
   large: false,
   xlarge: false,
   secondary: false,
-  primary: false,
+  primary: false
 };
 
 export default withStyles(({ color, size, unit, responsive }) => ({
@@ -68,33 +68,33 @@ export default withStyles(({ color, size, unit, responsive }) => ({
     padding: unit * 2,
     cursor: 'pointer',
     [responsive.small]: {
-      width: '100%',
-    },
+      width: '100%'
+    }
   },
   fullWidth: {
-    width: '100%',
+    width: '100%'
   },
   xlarge: {
-    fontSize: size.xg,
+    fontSize: size.xg
   },
   large: {
-    fontSize: size.lg,
+    fontSize: size.lg
   },
   small: {
     fontSize: size.sm,
-    padding: unit,
+    padding: unit
   },
   xsmall: {
     fontSize: size.xs,
-    padding: unit,
+    padding: unit
   },
   primary: {
     borderColor: color.primary,
     color: color.white,
-    backgroundColor: color.primary,
+    backgroundColor: color.primary
   },
   secondary: {
     borderColor: color.secondary,
-    color: color.secondary,
-  },
+    color: color.secondary
+  }
 }))(Button);
