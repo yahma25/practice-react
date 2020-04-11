@@ -9,7 +9,8 @@ import ReduxApp from '../07/ReduxApp03';
 // import AdvReduxApp from '../07/AdvReduxApp04';
 // import AdvReduxApp from '../07/AdvReduxApp05';
 // import AdvReduxApp from '../07/AdvReduxApp06';
-import AdvReduxApp from '../07/AdvReduxApp07';
+// import AdvReduxApp from '../07/AdvReduxApp07';
+import AdvReduxApp from '../07/AdvReduxApp08';
 
 storiesOf('ReduxApp', module)
   .addWithJSX('기본 예제', () => <ReduxApp />)
