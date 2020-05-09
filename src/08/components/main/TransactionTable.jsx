@@ -8,7 +8,7 @@ import TableBody from '../../../doit-ui/TableBody';
 
 class TransactionTable extends PureComponent {
   render() {
-    const { transaction } = this.props;
+    const { transactions } = this.props;
     return (
       <Table>
         <TableHead>
@@ -20,7 +20,7 @@ class TransactionTable extends PureComponent {
           </TableRow>
         </TableHead>
         <TableBody>
-          {transaction.map(({ id, name, totalPrice, currentPrice, datetime }) => (
+          {transactions.map(({ id, name, totalPrice, currentPrice, datetime }) => (
             <TableRow key={id}>
               <TableCell>{name}</TableCell>
               <TableCell align="center">{totalPrice}</TableCell>
@@ -35,7 +35,7 @@ class TransactionTable extends PureComponent {
 }
 
 TransactionTable.propTypes = {
-  transaction: PropTypes.arrayOf(
+  transactions: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
       name: PropTypes.string,

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import CoinOverview from './CoinOverview';
-import TransactionListContainer from './TransactionListContainer';
+import TransactionListContainer from '../../containers/TransactionListContainer';
 
 class MainPage extends PureComponent {
   render() {

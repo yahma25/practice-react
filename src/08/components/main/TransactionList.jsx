@@ -22,7 +22,7 @@ class TransactionList extends PureComponent {
           <TransactionSearchFilter />
         </Card>
         <Card>
-          <TransactionTable transaction={transactions} />
+          <TransactionTable transactions={transactions || []} />
         </Card>
       </div>
     );
