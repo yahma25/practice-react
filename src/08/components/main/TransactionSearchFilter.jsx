@@ -16,8 +16,11 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   handleSubmit(params) {
-    const { setTransactionList } = this.props;
-    Api.get('/transactions', { params }).then(({ data }) => setTransactionList(data));
+    const { requestTransactionList } = this.props;
+    const cleanedParams = Object.entries(params)
+      .filter(([key, value]) => value !== '')
+      .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+    requestTransactionList(cleanedParams);
   }
 
   render() {
