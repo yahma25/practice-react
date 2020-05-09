@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import PropTypes from 'prop-types';
 
 import InlineList from '../../../doit-ui/InlineList';
 import Button from '../../../doit-ui/Button';
@@ -10,9 +11,19 @@ import Select, { Option } from '../../../doit-ui/Select';
 import Api from '../../Api';
 
 class TransactionSearchFilter extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleSubmit(params) {
+    const { setTransactionList } = this.props;
+    Api.get('/transactions', { params }).then(({ data }) => setTransactionList(data));
+  }
+
   render() {
     return (
-      <Form onSubmit={values => Api.get('/transactions', { params: values })}>
+      <Form onSubmit={this.handleSubmit}>
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={2} verticalAlign="bottom">
@@ -48,6 +59,8 @@ class TransactionSearchFilter extends PureComponent {
   }
 }
 
-TransactionSearchFilter.propTypes = {};
+TransactionSearchFilter.propTypes = {
+  setTransactionList: PropTypes.func
+};
 
 export default TransactionSearchFilter;
