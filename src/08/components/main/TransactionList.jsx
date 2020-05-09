@@ -6,11 +6,9 @@ import Card from '../../../doit-ui/Card';
 import TransactionSearchFilterContainer from '../../containers/main/TransactionSearchFilterContainer';
 import TransactionTable from './TransactionTable';
 
-import Api from '../../Api';
-
 class TransactionList extends PureComponent {
   componentDidMount() {
-    Api.get('/transactions').then(({ data }) => this.props.setTransactionList(data));
+    this.props.requestTransactionList();
   }
 
   render() {
