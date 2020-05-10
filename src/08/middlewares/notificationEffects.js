@@ -1,5 +1,5 @@
 import {SET_ERROR} from '../actions/transactionActions';
-import {showMessage} from '../actions/notificationActions';
+import { SHOW_NOTIFICATION, showMessage, hideMessage } from '../actions/notificationActions';
 
 export default store => nextRunner => action => {
   const {type, payload} = action;
@@ -7,6 +7,9 @@ export default store => nextRunner => action => {
   if (type === SET_ERROR) {
     const {errorMessage} = payload;
     store.dispatch(showMessage(errorMessage, true));
+  } else if (type === SHOW_NOTIFICATION) {
+    const hide = () => store.dispatch(hideMessage());
+    setTimeout(hide, 3000);
   }
   return nextRunner(action);
 }
