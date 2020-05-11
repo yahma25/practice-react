@@ -6,8 +6,9 @@ import notificationEffects from '../middlewares/notificationEffects';
 import transactionEffects from '../middlewares/transactionEffects';
 import { middleware as reduxPackMiddleware } from 'redux-pack';
 
+// middleware 순서 중요
 export default initStates => createStore(
   combineReducers(reducers),
   initStates,
-  composeWithDevTools(applyMiddleware(thunk, notificationEffects, transactionEffects, reduxPackMiddleware))
+  composeWithDevTools(applyMiddleware(thunk, reduxPackMiddleware, notificationEffects, transactionEffects))
 );
