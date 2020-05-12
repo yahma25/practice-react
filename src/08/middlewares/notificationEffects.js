@@ -21,6 +21,10 @@ export default store => nextRunner => action => {
   } else if (type === FETCH_TRANSACTION_LIST && meta[KEY.LIFECYCLE] === LIFECYCLE.FAILURE) {
     const {errorMessage} = payload.response.data || {};
     store.dispatch(showMessage(errorMessage, true));
+
+  } else if (type === FETCH_TRANSACTION_LIST && meta[KEY.LIFECYCLE] === LIFECYCLE.SUCCESS) {
+    const message = '거래 목록을 최신 정보로 업데이트했습니다';
+    store.dispatch(showMessage(message));
   }
   return nextRunner(action);
 }
