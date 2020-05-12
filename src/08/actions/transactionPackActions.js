@@ -8,7 +8,10 @@ export function createTransaction(data, onComplete) {
     type: CREATE_TRANSACTION,
     promise: Api.post('/transactions', data),
     meta: {
-      onSuccess: onComplete
+      onSuccess: onComplete,
+      notification: {
+        success: '거래가 성공적으로 완료되었습니다.'
+      }
     }
   };
 }
@@ -16,6 +19,11 @@ export function createTransaction(data, onComplete) {
 export function requestTransactionList(params) {
   return {
     type: FETCH_TRANSACTION_LIST,
-    promise: Api.get('/transactions', {params})
+    promise: Api.get('/transactions', {params}),
+    meta: {
+      notification: {
+        error: '거래 목록을 갱신하는 중에 문제가 발생했습니다.'
+      }
+    }
   };
 }
