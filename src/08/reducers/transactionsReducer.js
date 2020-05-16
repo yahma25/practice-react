@@ -1,4 +1,4 @@
-import { LOADING_TRANSACTION_LIST, SET_ERROR, SET_TRANSACTION_LIST } from '../actions/transactionActions';
+// import { LOADING_TRANSACTION_LIST, SET_ERROR, SET_TRANSACTION_LIST } from '../actions/transactionActions';
 import {handle} from 'redux-pack';
 import {FETCH_TRANSACTION_LIST} from '../actions/transactionPackActions';
 
@@ -6,11 +6,12 @@ const initState = {
   ids: [],
   entities: {},
   loading: false,
-  hasError: false
+  hasError: false,
+  pagination: []
 }
 
 export default (state = initState, action) => {
-  const {type, payload} = action;
+  const {type, payload, meta} = action;
 
   switch (type) {
     case FETCH_TRANSACTION_LIST: {
@@ -22,6 +23,7 @@ export default (state = initState, action) => {
         }),
         success: prevState => {
           const {data} = payload;
+          const {pageNumber, pageSize} = meta || {};
           const ids = data.map(entity => entity['id']);
           const entities = data.reduce(
             (finalEntities, entity) => ({
@@ -35,7 +37,11 @@ export default (state = initState, action) => {
             ids,
             entities,
             loading: false,
-            hasError: false
+            hasError: false,
+            pagination: {
+              number: pageNumber,
+              size: pageSize
+            }
           };
         },
         failure: prevState => {
