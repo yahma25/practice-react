@@ -29,6 +29,8 @@ export function requestTransactionList(params, _page = 1) {
       }
     }),
     meta: {
+      pageNumber: _page,
+      pageSize: PAGE_SIZE,
       notification: {
         success: '거래 목록을 최신 정보로 업데이트했습니다.',
         error: '거래 목록을 갱신하는 중에 문제가 발생했습니다.'
