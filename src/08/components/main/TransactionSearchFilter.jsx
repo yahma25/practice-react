@@ -16,11 +16,12 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   handleSubmit(params) {
-    const { requestTransactionList } = this.props;
+    const { requestTransactionList, setFilter } = this.props;
     const cleanedParams = Object.entries(params)
-      .filter(([key, value]) => value !== '')
+      .filter(entries => entries[1] !== '')
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
     requestTransactionList(cleanedParams);
+    setFilter(cleanedParams);
   }
 
   render() {
@@ -62,6 +63,7 @@ class TransactionSearchFilter extends PureComponent {
 }
 
 TransactionSearchFilter.propTypes = {
+  setFilter: PropTypes.func,
   requestTransactionList: PropTypes.func
 };
 
