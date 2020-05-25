@@ -29,7 +29,7 @@ export default (state = initState, action) => {
             [type]: true
           },
           errorState: {
-            ...prevState.loadingState,
+            ...prevState.errorState,
             [type]: false
           }
         }),
@@ -84,7 +84,7 @@ export default (state = initState, action) => {
               [type]: false
             },
             errorState: {
-              ...prevState.loadingState,
+              ...prevState.errorState,
               [type]: errorMessage || true
             }
           };

@@ -3,7 +3,7 @@ import { FETCH_TRANSACTION_LIST, CREATE_TRANSACTION } from '../actions/transacti
 export const transactionsSelector = state => state.transactions;
 export const transactionListSelector = state => {
   const { ids, entities } = transactionsSelector(state);
-  return entities.map(id => entities[id]);
+  return ids.map(id => entities[id]);
 };
 export const loadingStateSelector = state => transactionsSelector(state).loadingState;
 export const transactionListLoadingStateSelector = state => loadingStateSelector(state)[FETCH_TRANSACTION_LIST];
