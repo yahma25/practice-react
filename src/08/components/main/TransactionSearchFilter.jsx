@@ -9,6 +9,8 @@ import Form from '../../../doit-ui/Form';
 
 import Select, { Option } from '../../../doit-ui/Select';
 
+import { withRouter } from 'react-router-dom';
+
 class TransactionSearchFilter extends PureComponent {
   constructor(props) {
     super(props);
@@ -16,12 +18,14 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   handleSubmit(params) {
-    const { requestTransactionList, setFilter } = this.props;
+    const { history } = this.props;
     const cleanedParams = Object.entries(params)
       .filter(entries => entries[1] !== '')
       .reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
-    requestTransactionList(cleanedParams);
-    setFilter(cleanedParams);
+    const queryString = Object.entries(cleanedParams)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+    history.push(`/?${queryString}`);
   }
 
   render() {
@@ -67,4 +71,4 @@ TransactionSearchFilter.propTypes = {
   requestTransactionList: PropTypes.func
 };
 
-export default TransactionSearchFilter;
+export default withRouter(TransactionSearchFilter);
