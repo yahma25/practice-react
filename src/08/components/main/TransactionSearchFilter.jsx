@@ -29,8 +29,10 @@ class TransactionSearchFilter extends PureComponent {
   }
 
   render() {
+    const { initValues } = this.props;
+
     return (
-      <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit} initValues={initValues}>
         <Form.Consumer>
           {({ onChange, values }) => (
             <InlineList spacingBetween={2} verticalAlign="bottom">
