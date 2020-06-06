@@ -6,7 +6,7 @@ import ModalProvider from './ModalProvider';
 import NotificationContainer from './containers/NotificationContainer';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import MainPage from './components/main/MainPage';
+import AsyncMainPage from '../13/AsyncMainPage';
 import NotFound from './components/NotFound';
 import RouterStateContainer from './containers/RouterStateContainer';
 
@@ -20,7 +20,7 @@ class CoinApp extends PureComponent {
           <ModalProvider>
             <AppLayout>
               <Switch>
-                <Route path="/" exact render={() => <MainPage />} />
+                <Route path="/" exact render={() => <AsyncMainPage />} />
                 <Route path="*" component={NotFound} />
               </Switch>
               <NotificationContainer />
